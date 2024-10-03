@@ -1,0 +1,31 @@
+proyecto-integrado/
+│
+├── node_modules/
+├── public/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── main.js
+│   └── uploads/
+├── views/
+│   ├── partials/
+│   │   ├── header.ejs
+│   │   └── footer.ejs
+│   ├── index.ejs
+│   ├── productos.ejs
+│   └── pdf.ejs
+├── routes/
+│   ├── index.js
+│   ├── productos.js
+│   └── pdf.js
+├── models/
+│   ├── Producto.js
+│   └── PDF.js
+├── controllers/
+│   ├── productoController.js
+│   └── pdfController.js
+├── config/
+│   └── database.js
+├── app.js
+├── package.json
+└── README.md

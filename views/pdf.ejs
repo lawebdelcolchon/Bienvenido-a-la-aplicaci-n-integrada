@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<h1>Gestión de PDFs</h1>
+
+<h2>Subir PDF</h2>
+<form action="/pdf/upload" method="POST" enctype="multipart/form-data">
+  <input type="file" name="pdf" accept=".pdf" required>
+  <button type="submit">Subir</button>
+</form>
+
+<h2>Lista de PDFs</h2>
+<form action="/pdf/merge" method="POST">
+  <table>
+    <thead>
+      <tr>
+        <th>Seleccionar</th>
+        <th>Nombre</th>
+        <th>Fecha de subida</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% pdfs.forEach(function(pdf) { %>
+        <tr>
+          <td><input type="checkbox" name="pdfIds[]" value="<%= pdf.id %>"></td>
+          <td><%= pdf.nombre %></td>
+          <td><%= new Date(pdf.fecha_subida).toLocaleString() %></td>
+          <td>
+            <a href="/uploads/<%= pdf.ruta %>" target="_blank">Ver</a>
+            <a href="/pdf/delete/<%= pdf.id %>">Eliminar</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <button type="submit">Fusionar PDFs seleccionados</button>
+</form>
+<%- include('partials/footer') %>
